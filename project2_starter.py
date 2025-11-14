@@ -91,10 +91,10 @@ class Character:
 
 class Player(Character):
     '''Base class for player characters.'''
-    def __init__(self, name, character_class, level, health, strength, magic):
+    def __init__(self, name, character_class, health, strength, magic):
         super().__init__(name, health, strength, magic)
         self.character_class = character_class
-        self.level = level
+        self.level = 0
 
     def display_stats(self):
         super().display_stats()
@@ -104,7 +104,7 @@ class Warrior(Player):
     '''Warrior class - strong physical fighter.'''
     def __init__(self, name):
         '''Warriors have: high health, high strength, low magic'''
-        super().__init__(name, 'Warrior', 1, 120, 15, 5)
+        super().__init__(name, 'Warrior', 120, 15, 5)
 
     def attack(self, target):
         calculation = self.strength + 5
@@ -119,7 +119,7 @@ class Mage(Player):
     '''Mage class - magical spellcaster.'''
     def __init__(self, name):
         '''Mages have: low health, low strength, high magic'''
-        super().__init__(name, 'Mage', 1, 80, 8, 20)
+        super().__init__(name, 'Mage', 80, 8, 20)
  
     def attack(self, target):
         calculation = self.magic
@@ -134,7 +134,7 @@ class Rogue(Player):
     '''Rogue class - quick and sneaky fighter.'''
     def __init__(self, name):
         '''Rogues have: medium health, medium strength, medium magic'''
-        super().__init__(name, 'Rogue', 1, 90, 12, 10)
+        super().__init__(name, 'Rogue', 90, 12, 10)
   
     def attack(self, target):
         if random.randint(1,10) <= 3:
@@ -152,7 +152,7 @@ class Cleric(Player):
     '''Cleric class - holy magician'''
     def __init__(self, name):
         '''Clerics have: high health, medium strength, high magic'''
-        super().__init__(name, 'Cleric', 1, 100, 10, 15)
+        super().__init__(name, 'Cleric', 100, 10, 15)
 
     def attack(self, target):
         # Every attack has a chance to be from the cleric (strength) or the cleric's diety (magic)
