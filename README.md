@@ -4,144 +4,68 @@
 
 ## 🎯 Project Overview
 
-Build a simple character system that demonstrates mastery of object-oriented programming fundamentals: inheritance, method overriding, polymorphism, and composition. This project focuses on core OOP concepts without the complexity of a full game system.
+A simple character system that demonstrates mastery of the following object-oriented programming fundamentals: 
+- Inheritance
+- Method Overriding
+- Polymorphism
+- Composition
 
-## 📋 Getting Started
+This project focuses on core OOP concepts without the complexity of a full game system.
 
-1. **Complete your implementation** in `project2_starter.py`
-2. **Test your code** by running: `python project2_starter.py`
-3. **Run automated tests** with: `python -m pytest tests/ -v`
-4. **Commit and push** to see GitHub test results
-
-## 🏗️ What You're Building
-
-### **Class Structure (6 Classes Total)**
-
+## 🏗️ What I Built:
+### **Class Structure (7 Classes Total)**
 ```
 Character (base class)
     ↓
 Player (inherits from Character)  
     ↓
-Warrior, Mage, Rogue (inherit from Player)
+Warrior, Mage, Rogue, Cleric (inherit from Player)
 
 Weapon (composition - separate class)
 ```
 
-### **Required Stats for Each Class:**
+### ** Stats for Each Class:**
 
 | Class   | Health | Strength | Magic | Special Ability |
 |---------|--------|----------|-------|-----------------|
 | Warrior | 120    | 15       | 5     | Power Strike    |
 | Mage    | 80     | 8        | 20    | Fireball        |
 | Rogue   | 90     | 12       | 10    | Sneak Attack    |
+| Cleric  | 100    | 10       | 15    | Divine Power    |
 
 ## 🎮 Core Functionality
 
-### **All Characters Must Have:**
+### **All Characters Have:**
 - `attack(target)` - Basic attack method
 - `take_damage(damage)` - Reduce health
 - `display_stats()` - Print character information
 
 ### **Players Additionally Have:**
-- `character_class` attribute (like "Warrior", "Mage")
-- `level` and `experience` attributes
+- `character_class` attribute
+- `level` attribute
 - Enhanced `display_stats()` that shows player info
 
 ### **Special Abilities (Each Class):**
 - **Warrior**: `power_strike(target)` - High damage attack
 - **Mage**: `fireball(target)` - Magic damage attack
 - **Rogue**: `sneak_attack(target)` - Critical hit attack
+- **Cleric**: `divine_power(target)` -  Higher damage when you have lower health 
 
 ### **Weapons (Composition):**
 - `Weapon(name, damage_bonus)` - Characters can HAVE weapons
 - `display_info()` - Show weapon information
 
-## ✅ Testing Your Code
-
-### **Local Testing**
-```bash
-# Run all tests
-python -m pytest tests/ -v
-
-# Run specific test categories
-python -m pytest tests/test_inheritance.py -v
-python -m pytest tests/test_method_overriding.py -v
-python -m pytest tests/test_special_abilities.py -v
-
-# Test your main program
-python project2_starter.py
-```
-
-### **GitHub Testing**
-
-After pushing your code, check the **Actions** tab to see automated test results:
-
-- ✅ **Inheritance Tests** (20 points) - Class structure and inheritance chain
-- ✅ **Method Overriding Tests** (20 points) - Polymorphism and customized methods
-- ✅ **Special Abilities Tests** (15 points) - Character abilities and composition
-
-## 🎮 Example Usage
-
-Your program should work like this:
-
-```python
-# Create characters (inheritance)
-warrior = Warrior("Marcus")
-mage = Mage("Aria")  
-rogue = Rogue("Shadow")
-
-# Polymorphism - same method, different behavior
-for character in [warrior, mage, rogue]:
-    character.attack(target)  # Each attacks differently
-
-# Special abilities
-warrior.power_strike(enemy)
-mage.fireball(enemy)
-rogue.sneak_attack(enemy)
-
-# Composition
-sword = Weapon("Iron Sword", 15)
-sword.display_info()
-
-# Test battle system (provided for you)
-battle = SimpleBattle(warrior, mage)
-battle.fight()
-```
-
 ## 🎲 SimpleBattle System (Provided)
 
-You have a **SimpleBattle** class already written that you can use to test your characters:
+A **SimpleBattle** class was provided, and not designed by me. Use it to have battles:
 
 ```python
-battle = SimpleBattle(character1, character2)
-battle.fight()  # Simulates a simple battle
+character1 = Class('Name')                     # Creates the first character. Replace "Class" with the class you want.
+character2 = Class('Name')                     # Creates the second character. Replace 'Name' with your character's name.
+battle = SimpleBattle(character1, character2)  # Initiates the SimpleBattle class with the characters as opponents
+battle.fight()                                 # Simulates and prints a simple battle between the characters
 ```
 
-**⚠️ DO NOT MODIFY the SimpleBattle class** - it's provided for testing your implementations.
-
-## ⚠️ Important Notes
-
-### **Protected Files**
-- **DO NOT MODIFY** files in the `tests/` directory
-- **DO NOT MODIFY** the `SimpleBattle` class
-- Modifying protected files will result in automatic academic integrity violation
-
-### **AI Usage Policy**
-- ✅ **Allowed**: AI assistance for implementation, debugging, learning
-- 📝 **Required**: Document AI usage in code comments
-- 🎯 **Must be able to explain**: Every class and method during interview
-
-## 🏆 Grading
-
-- **Inheritance Tests (20%)**: Proper 3-level inheritance chain
-- **Method Overriding (20%)**: Polymorphism and customized behaviors
-- **Special Abilities (15%)**: Character-specific methods and composition
-- **Code Quality (5%)**: Professional comments and documentation
-- **Interview (40%)**: Code explanation and live coding
-
 ## 🎨 Bonus Creative Elements
-
-Feel free to add your own creative touches for bonus points:
-- Additional character classes beyond the three required
-- More weapon types with different properties
-- Enhanced special abilities with unique effects
+- New Class: **Cleric** inspired by project 1
+- Custom special ability "Divine Intervention" for the cleric class
