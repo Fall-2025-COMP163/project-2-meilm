@@ -107,10 +107,6 @@ class Warrior(Player):
         super().__init__(name, 'Warrior', 1, 120, 15, 5)
 
     def attack(self, target):
-        '''
-        Override the basic attack to make it warrior-specific.
-        Warriors should do extra physical damage.
-        '''
         calculation = self.strength + 5
         super().attack(target, calculation)
 
@@ -126,10 +122,6 @@ class Mage(Player):
         super().__init__(name, 'Mage', 1, 80, 8, 20)
  
     def attack(self, target):
-        '''
-        Override the basic attack to make it magic-based.
-        Mages should use magic for damage instead of strength.
-        '''
         calculation = self.magic
         super().attack(target, calculation)
   
@@ -145,10 +137,6 @@ class Rogue(Player):
         super().__init__(name, 'Rogue', 1, 90, 12, 10)
   
     def attack(self, target):
-        '''
-        Override the basic attack to make it rogue-specific.
-        Rogues should have a chance for extra damage (critical hits).
-        '''
         if random.randint(1,10) <= 3:
             calculation = self.strength * 2
             print('A critical hit!')
@@ -248,8 +236,3 @@ if __name__ == '__main__':
     battle.fight()
     
     print('\n✅ Testing complete!')
-    wait_for_user_input = input()
-    base_char = Character("BaseChar", 50, 8, 3)
-    warrior = Warrior("OverrideWarrior")
-    base_char.display_stats()
-    warrior.display_stats()
